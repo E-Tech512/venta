@@ -1,0 +1,79 @@
+<div class="h-screen">
+    <div class="flex flex-col gap-3">
+        <div class="flex flex-col sm:flex-row sm:justify-between gap-2">
+            <input id="nombre" type="text" placeholder="Buscar por nombre"
+                class="bg-transparent border border-primary px-2 py-2 placeholder-tertiary text-primary focus:outline-none focus:border-primary w-full sm:w-auto" />
+            <button (click)="openModal()"
+                class="flex flex-col border border-primary items-center justify-center px-2 py-2 group hover:bg-primary transition-all duration-75 self-start sm:self-auto">
+                <i class="fa-solid fa-plus fa-beat text-primary group-hover:text-white"></i>
+                <p class="text-primary hidden sm:block group-hover:text-secondary">Agregar</p>
+            </button>
+        </div>
+        <!--Modal-->
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-tertiary bg-opacity-50" *ngIf="isModalOpen">
+            <div class="bg-secondary rounded-lg shadow-lg max-w-md w-full p-6" role="dialog">
+                <form id="addCategoryForm" class="mt-4" (ngSubmit)="onSubmit()">
+                    <!-- Campo Nombre de Categoría -->
+                    <div class="mb-4">
+                        <label for="categoryName"
+                            class="flex justify-center pb-3 text-2xl font-bold text-primary">Nombre de la
+                            Categoría</label>
+                        <input type="text" id="categoryName" name="categoryName"
+                            class="w-full mt-1 p-2 border rounded-md focus:ring focus:ring-tertiary focus:outline-none"
+                            placeholder="Ingresa el nombre de la categoría" required [(ngModel)]="catego.name" />
+                        <p id="categoryNameError" class="text-sm text-red-500 mt-1 hidden">Este campo es obligatorio.
+                        </p>
+                    </div>
+                    <!-- Botón Agregar -->
+                    <div class="flex flex-col gap-4">
+                        <button type="submit"
+                            class="w-full bg-primary text-secondary py-2 rounded-md hover:bg-tertiary focus:outline-none focus:ring focus:ring-tertiary">
+                            Agregar Categoría
+                        </button>
+                        <button type="button" (click)="closeModal()"
+                            class="w-full bg-tertiary text-secondary py-2 rounded-md hover:bg-primary focus:outline-none focus:ring focus:ring-primary">
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- tabla -->
+        <div>
+            <p class="font-bold text-2xl">Lista de Categorias</p>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full border border-primary text-center text-secondary">
+                <thead class="bg-primary">
+                    <tr>
+                        <th class="px-4 py-2 border-b border-r border-secondary">Código</th>
+                        <th class="px-4 py-2 border-b border-r border-secondary">Nombre</th>
+                        <th class="px-4 py-2 border-b border-r border-secondary">Estado</th>
+                        <th class="px-4 py-2 border-b border-r border-secondary">Fecha</th>
+                        <th class="px-4 py-2 border-b border-r border-secondary">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-transparent">
+                    <tr *ngFor="let categoria of category"
+                        class="hover:bg-primary text-primary hover:text-secondary transition hover:border-secondary">
+                        <td class="px-4 py-2 border hover:border-secondary">{{categoria?.id}}</td>
+                        <td class="px-4 py-2 border hover:border-secondary">{{categoria?.name}}</td>
+                        <td class="px-4 py-2 border hover:border-secondary">Activo</td>
+                        <td class="px-4 py-2 border hover:border-secondary">fecha</td>
+                        <td class="px-4 py-2 border hover:border-secondary">
+                            <button (click)="deleteCategory(categoria.id)"
+                                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>
+</div>

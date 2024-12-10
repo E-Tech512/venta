@@ -1,0 +1,30 @@
+<div>
+    <p class="font-bold text-2xl">Lista de Productos</p>
+</div>
+<div class="overflow-x-auto">
+    <table class="w-full border border-primary text-center text-secondary">
+        <thead class="bg-primary">
+            <tr>
+                <th class="px-4 py-2 border-b border-r border-secondary">Código</th>
+                <th class="px-4 py-2 border-b border-r border-secondary">Nombre</th>
+                <th class="px-4 py-2 border-b border-r border-secondary">Categoria</th>
+                <th class="px-4 py-2 border-b border-r border-secondary">Opciones</th>
+            </tr>
+        </thead>
+        <tbody class="bg-transparent">
+            <tr *ngFor="let producto of productos"
+                class="hover:bg-primary text-primary hover:text-secondary transition hover:border-secondary">
+                <td class="px-4 py-2 border hover:border-secondary">{{producto.id}}</td>
+                <td class="px-4 py-2 border hover:border-secondary">{{producto.name}}</td>
+                <td class="px-4 py-2 border hover:border-secondary">{{producto.categoria.name }}</td>
+                <td class="px-4 py-2 border hover:border-secondary">
+                    <button
+                        class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

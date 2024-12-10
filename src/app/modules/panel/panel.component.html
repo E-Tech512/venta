@@ -1,0 +1,74 @@
+<div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="bg-primary text-secondary w-16 sm:w-64 flex flex-col items-center py-4">
+        <!-- Logo/Título del Sidebar (opcional) -->
+        <div class="hidden sm:flex flex-col items-center mb-8">
+            <i class="fa-regular fa-user fa-2x"></i>
+            <p class="text-lg mt-2">Alastor</p>
+        </div>
+
+        <!-- Opciones del Sidebar -->
+        <div class="flex flex-col space-y-4 w-full items-center pl-5">
+            <!-- Usuarios -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-user fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Usuarios</p>
+            </button>
+
+            <!-- Mantenedor -->
+            <details class="w-full">
+                <summary class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 cursor-pointer">
+                    <i class="fa-solid fa-paperclip fa-beat text-secondary group-hover:text-primary"></i>
+                    <p class="text-secondary hidden sm:block group-hover:text-primary">Mantenedor</p>
+                </summary>
+                <!-- Subopciones de Mantenedor -->
+                <div class="flex flex-col mt-2 py-8 gap-4 bg-white">
+                    <button class="flex items-center justify-center gap-2 group hover:text-secondary" routerLink="/categoria">
+                        <i class="fa-solid fa-tags text-primary group-hover:text-secondary"></i>
+                        <p class="text-primary hidden sm:block">Categorías</p>
+                    </button>
+                    <button class="flex items-center justify-center gap-2 group hover:text-secondary" routerLink="/producto">
+                        <i class="fa-solid fa-box text-primary group-hover:text-secondary"></i>
+                        <p class="text-primary   hidden sm:block">Productos</p>
+                    </button>
+                </div>
+            </details>
+
+            <!-- Ventas -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-brands fa-shopify fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Ventas</p>
+            </button>
+            <!-- Compras -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-handshake fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Compras</p>
+            </button>
+            <!-- Clientes -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-users fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Clientes</p>
+            </button>
+            <!-- Proveedores -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-user-tag fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Proveedores</p>
+            </button>
+            <!-- Reportes -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-pen fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Reportes</p>
+            </button>
+            <!-- Acerca de -->
+            <button class="flex gap-4 items-center justify-start px-2 py-2 group hover:bg-secondary transition-all duration-75 w-full">
+                <i class="fa-solid fa-gear fa-beat text-secondary group-hover:text-primary"></i>
+                <p class="text-secondary hidden sm:block group-hover:text-primary">Acerca de</p>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="flex-1 bg-white p-1 overflow-y-auto">
+        <router-outlet />        
+    </div>
+</div>
